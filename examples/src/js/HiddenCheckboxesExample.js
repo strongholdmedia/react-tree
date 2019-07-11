@@ -1,82 +1,82 @@
-import React from 'react';
-import CheckboxTree from 'react-checkbox-tree';
+import React from "react";
+import Tree from "react-tree";
 
 const nodes = [
     {
-        value: 'favorite-empires',
-        label: 'Favorite Empires',
+        value: "favorite-empires",
+        label: "Favorite Empires",
         children: [
             {
-                value: 'classical-era',
-                label: 'Classical Era',
+                value: "classical-era",
+                label: "Classical Era",
                 children: [
                     {
-                        value: 'persian',
-                        label: 'First Persian Empire',
+                        value: "persian",
+                        label: "First Persian Empire",
                     },
                     {
-                        value: 'qin',
-                        label: 'Qin Dynasty',
+                        value: "qin",
+                        label: "Qin Dynasty",
                     },
                     {
-                        value: 'spqr',
-                        label: 'Roman Empire',
+                        value: "spqr",
+                        label: "Roman Empire",
                     },
                 ],
             },
             {
-                value: 'medieval-era',
-                label: 'Medieval Era',
+                value: "medieval-era",
+                label: "Medieval Era",
                 children: [
                     {
-                        value: 'abbasid',
-                        label: 'Abbasid Caliphate',
+                        value: "abbasid",
+                        label: "Abbasid Caliphate",
                     },
                     {
-                        value: 'byzantine',
-                        label: 'Byzantine Empire',
+                        value: "byzantine",
+                        label: "Byzantine Empire",
                     },
                     {
-                        value: 'holy-roman',
-                        label: 'Holy Roman Empire',
+                        value: "holy-roman",
+                        label: "Holy Roman Empire",
                     },
                     {
-                        value: 'ming',
-                        label: 'Ming Dynasty',
+                        value: "ming",
+                        label: "Ming Dynasty",
                     },
                     {
-                        value: 'mongol',
-                        label: 'Mongol Empire',
+                        value: "mongol",
+                        label: "Mongol Empire",
                     },
                 ],
             },
             {
-                value: 'modern-era',
-                label: 'Modern Era',
+                value: "modern-era",
+                label: "Modern Era",
                 children: [
                     {
-                        value: 'aztec',
-                        label: 'Aztec Empire',
+                        value: "aztec",
+                        label: "Aztec Empire",
                     },
                     {
-                        value: 'british',
-                        label: 'British Empire',
+                        value: "british",
+                        label: "British Empire",
                     },
                     {
-                        value: 'inca',
-                        label: 'Inca Empire',
+                        value: "inca",
+                        label: "Inca Empire",
                     },
                     {
-                        value: 'qing',
-                        label: 'Qing Dynasty',
+                        value: "qing",
+                        label: "Qing Dynasty",
                     },
                     {
-                        value: 'russian',
-                        label: 'Russian Empire',
+                        value: "russian",
+                        label: "Russian Empire",
                     },
                     {
-                        value: 'spanish',
-                        label: 'Spanish Empire',
+                        value: "spanish",
+                        label: "Spanish Empire",
                     },
                 ],
             },
@@ -87,16 +87,16 @@ const nodes = [
 class HiddenCheckboxesExample extends React.Component {
     state = {
         checked: [
-            'persian',
-            'spqr',
-            'byzantine',
-            'holy-roman',
-            'inca',
+            "persian",
+            "spqr",
+            "byzantine",
+            "holy-roman",
+            "inca",
         ],
         expanded: [
-            'favorite-empires',
-            'classical-era',
-            'medieval-era',
+            "favorite-empires",
+            "classical-era",
+            "medieval-era",
         ],
     };
 
@@ -119,7 +119,7 @@ class HiddenCheckboxesExample extends React.Component {
         const { checked, expanded } = this.state;
 
         return (
-            <CheckboxTree
+            <Tree
                 checked={checked}
                 expanded={expanded}
                 nodes={nodes}

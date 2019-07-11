@@ -1,32 +1,33 @@
-function makeConfig(target) {
+function makeConfig(target)
+{
     const fileMap = {
-        node: 'index.js',
-        web: 'index.browser.js',
+        node: "index.js",
+        web: "index.browser.js",
     };
 
     return {
-        mode: 'production',
+        mode: "production",
         target,
         output: {
             filename: fileMap[target],
-            libraryTarget: 'umd',
-            library: 'ReactCheckboxTree',
+            libraryTarget: "umd",
+            library: "ReactTree",
         },
         externals: [
             {
                 react: {
-                    root: 'React',
-                    commonjs2: 'react',
-                    commonjs: 'react',
-                    amd: 'react',
+                    root: "React",
+                    commonjs2: "react",
+                    commonjs: "react",
+                    amd: "react",
                 },
             },
             {
-                'react-dom': {
-                    root: 'ReactDOM',
-                    commonjs2: 'react-dom',
-                    commonjs: 'react-dom',
-                    amd: 'react-dom',
+                "react-dom": {
+                    root: "ReactDOM",
+                    commonjs2: "react-dom",
+                    commonjs: "react-dom",
+                    amd: "react-dom",
                 },
             },
         ],
@@ -35,7 +36,7 @@ function makeConfig(target) {
                 {
                     test: /\.js?$/,
                     exclude: /(node_modules)/,
-                    loader: 'babel-loader',
+                    loader: "babel-loader",
                 },
             ],
         },

@@ -19,18 +19,24 @@ const webpackConfig = require('./webpack.config');
 const banner = '/*! <%= pkg.name %> - v<%= pkg.version %> | <%= new Date().getFullYear() %> */\n';
 const browserSync = browserSyncImport.create();
 
-gulp.task('test-script-format', () => (
-    gulp.src([
-        './examples/src/**/*.js',
-        './src/**/*.js',
-        './test/**/*.js',
-        './*.js',
-    ])
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failOnError())
-));
-
+//gulp.task('test-script-format', () => (
+//    gulp.src([
+//        './examples/src/**/*.js',
+//        './src/**/*.js',
+//        './test/**/*.js',
+//        './*.js',
+//    ])
+//        .pipe(eslint({
+//            rules: {
+//                "quotes": 0,
+//                "brace-style": [ 1, "allman", { allowSingleLine: false } ],
+//                "comma-dangle": [ 1, "never" ]
+//            }
+//        }))
+//        .pipe(eslint.format())
+//        .pipe(eslint.failOnError())
+//));
+//
 gulp.task('test-script-mocha', () => (
     gulp.src(['./test/**/*.js'])
         .pipe(mocha({
@@ -84,7 +90,7 @@ gulp.task('build-style-less', () => (
 
 gulp.task('compare-css-output', gulp.series(gulp.parallel('build-style', 'build-style-less'), () => (
     gulp.src('./gulpfile.js')
-        .pipe(exec('cmp .css-compare/less/react-checkbox-tree.css .css-compare/scss/react-checkbox-tree.css'))
+        .pipe(exec('cmp .css-compare/less/react-tree.css .css-compare/scss/react-tree.css'))
         .pipe(exec.reporter())
 )));
 

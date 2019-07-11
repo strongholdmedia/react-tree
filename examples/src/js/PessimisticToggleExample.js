@@ -1,96 +1,96 @@
-import React from 'react';
-import CheckboxTree from 'react-checkbox-tree';
+import React from "react";
+import Tree from "react-tree";
 
 const nodes = [
     {
-        value: '/app',
-        label: 'app',
+        value: "/app",
+        label: "app",
         children: [
             {
-                value: '/app/Http',
-                label: 'Http',
+                value: "/app/Http",
+                label: "Http",
                 children: [
                     {
-                        value: '/app/Http/Controllers',
-                        label: 'Controllers',
+                        value: "/app/Http/Controllers",
+                        label: "Controllers",
                         children: [{
-                            value: '/app/Http/Controllers/WelcomeController.js',
-                            label: 'WelcomeController.js',
+                            value: "/app/Http/Controllers/WelcomeController.js",
+                            label: "WelcomeController.js",
                         }],
                     },
                     {
-                        value: '/app/Http/routes.js',
-                        label: 'routes.js',
+                        value: "/app/Http/routes.js",
+                        label: "routes.js",
                     },
                 ],
             },
             {
-                value: '/app/Providers',
-                label: 'Providers',
+                value: "/app/Providers",
+                label: "Providers",
                 children: [{
-                    value: '/app/Http/Providers/EventServiceProvider.js',
-                    label: 'EventServiceProvider.js',
+                    value: "/app/Http/Providers/EventServiceProvider.js",
+                    label: "EventServiceProvider.js",
                 }],
             },
         ],
     },
     {
-        value: '/config',
-        label: 'config',
+        value: "/config",
+        label: "config",
         children: [
             {
-                value: '/config/app.js',
-                label: 'app.js',
+                value: "/config/app.js",
+                label: "app.js",
             },
             {
-                value: '/config/database.js',
-                label: 'database.js',
+                value: "/config/database.js",
+                label: "database.js",
             },
         ],
     },
     {
-        value: '/public',
-        label: 'public',
+        value: "/public",
+        label: "public",
         children: [
             {
-                value: '/public/assets/',
-                label: 'assets',
+                value: "/public/assets/",
+                label: "assets",
                 children: [{
-                    value: '/public/assets/style.css',
-                    label: 'style.css',
+                    value: "/public/assets/style.css",
+                    label: "style.css",
                 }],
             },
             {
-                value: '/public/index.html',
-                label: 'index.html',
+                value: "/public/index.html",
+                label: "index.html",
             },
         ],
     },
     {
-        value: '/.env',
-        label: '.env',
+        value: "/.env",
+        label: ".env",
     },
     {
-        value: '/.gitignore',
-        label: '.gitignore',
+        value: "/.gitignore",
+        label: ".gitignore",
     },
     {
-        value: '/README.md',
-        label: 'README.md',
+        value: "/README.md",
+        label: "README.md",
     },
 ];
 
 class PessimisticToggleExample extends React.Component {
     state = {
         checked: [
-            '/app/Http/Controllers/WelcomeController.js',
-            '/app/Http/routes.js',
-            '/public/assets/style.css',
-            '/public/index.html',
-            '/.gitignore',
+            "/app/Http/Controllers/WelcomeController.js",
+            "/app/Http/routes.js",
+            "/public/assets/style.css",
+            "/public/index.html",
+            "/.gitignore",
         ],
         expanded: [
-            '/app',
+            "/app",
         ],
     };
 
@@ -113,7 +113,7 @@ class PessimisticToggleExample extends React.Component {
         const { checked, expanded } = this.state;
 
         return (
-            <CheckboxTree
+            <Tree
                 checked={checked}
                 expanded={expanded}
                 nodes={nodes}

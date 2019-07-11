@@ -1,15 +1,15 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-    mode: 'development',
+    mode: "development",
     output: {
-        filename: 'index.js',
-        libraryTarget: 'umd',
-        library: 'ReactCheckboxTree',
+        filename: "index.js",
+        libraryTarget: "umd",
+        library: "ReactTree",
     },
     resolve: {
         alias: {
-            'react-checkbox-tree': path.resolve(__dirname, 'src/js/CheckboxTree'),
+            "react-tree": path.resolve(__dirname, "src/js/Tree"),
         },
     },
     module: {
@@ -17,7 +17,7 @@ module.exports = {
             {
                 test: /\.js?$/,
                 exclude: /(node_modules)/,
-                loader: 'babel-loader',
+                loader: "babel-loader",
             },
         ],
     },

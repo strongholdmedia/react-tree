@@ -2,7 +2,7 @@
   "name": "@dorgaren/react-tree",
   "version": "1.9.5",
   "description": "A simple and ubiquitous React tree",
-  "author": { "name": "Viktor Csiki", "url": "dorgaren.digital" },
+  "author": { "name": "Viktor Csiki", "url": "https://dorgaren.digital" },
   "contributors": [
      "Jake Zatecky"
   ],

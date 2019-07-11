@@ -1,15 +1,15 @@
 $header-bg-color: #3498db;
 $header-bg-color-secondary: #2c3e50;
 $section-headings-color: #3498db;
-$rct-color: #444;
-$rct-border-color: #ccc;
+$rt-color: #444;
+$rt-border-color: #ccc;
 $input-border-color: #ced4da;
 
-@import "../../../src/scss/react-checkbox-tree";
+@import "../../../src/scss/react-tree";
 @import "cayman";
 
 .react-checkbox-tree {
-  color: $rct-color;
+  color: $rt-color;
   font-family: 'Roboto', sans-serif;
 }
 

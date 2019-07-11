@@ -1,5 +1,5 @@
-import React from 'react';
-import CheckboxTree from 'react-checkbox-tree';
+import React from "react";
+import Tree from "react-tree";
 
 const parents = [];
 
@@ -21,8 +21,8 @@ for (let i = 0; i < 100; i += 1) {
 }
 
 const nodes = [{
-    value: 'node-0',
-    label: 'Node 0',
+    value: "node-0",
+    label: "Node 0",
     children: parents,
 }];
 
@@ -51,7 +51,7 @@ class LargeDataExample extends React.Component {
         const { checked, expanded } = this.state;
 
         return (
-            <CheckboxTree
+            <Tree
                 checked={checked}
                 expanded={expanded}
                 nodes={nodes}
