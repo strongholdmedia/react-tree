@@ -1,7 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 
-declare module "react-checkbox-tree" {
-    interface Node {
+declare module "@dorgaren/react-tree" 
+{
+    interface Node 
+    {
         label: JSX.Element;
         value: string;
         children?: Array<Node>;
@@ -12,7 +14,8 @@ declare module "react-checkbox-tree" {
         title?: string;
     }
 
-    interface Icons {
+    interface Icons 
+    {
         check?: JSX.Element;
         uncheck?: JSX.Element;
         halfCheck?: JSX.Element;
@@ -25,13 +28,15 @@ declare module "react-checkbox-tree" {
         leaf?: JSX.Element;
     }
 
-    interface Language {
+    interface Language 
+    {
         collapseAll: string;
         expandAll: string;
         toggle: string;
     }
 
-    interface CheckboxProps {
+    interface TreeProps 
+    {
         nodes: Array<Node>;
         checked: Array<string>;
         expanded: Array<string>;
@@ -39,6 +44,7 @@ declare module "react-checkbox-tree" {
         onExpand: (expanded: Array<string>) => void;
 
         disabled?: boolean;
+        useCheckboxes?: boolean;
         expandDisabled?: boolean;
         expandOnClick?: boolean;
         icons?: Icons;
@@ -47,6 +53,7 @@ declare module "react-checkbox-tree" {
         name?: string;
         nameAsArray?: boolean;
         nativeCheckboxes?: boolean;
+        customProps?: Array<string>;
         noCascade?: boolean;
         onlyLeafCheckboxes?: boolean;
         optimisticToggle?: boolean;
@@ -56,5 +63,5 @@ declare module "react-checkbox-tree" {
         onClick?: (event: { checked: boolean, value: any }) => void;
     }
 
-    export default class CheckboxTree extends React.Component<CheckboxProps> { }
+    export default class Tree extends React.Component<TreeProps> { }
 }
