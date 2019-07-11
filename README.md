@@ -1,76 +1,87 @@
-# react-checkbox-tree
+# @dorgaren/react-tree
 
-[![npm](https://img.shields.io/npm/v/react-checkbox-tree.svg?style=flat-square)](https://www.npmjs.com/package/react-checkbox-tree)
-[![Build Status](https://img.shields.io/travis/jakezatecky/react-checkbox-tree/master.svg?style=flat-square)](https://travis-ci.org/jakezatecky/react-checkbox-tree)
-[![Dependency Status](https://img.shields.io/david/jakezatecky/react-checkbox-tree.svg?style=flat-square)](https://david-dm.org/jakezatecky/react-checkbox-tree)
-[![devDependency Status](https://david-dm.org/jakezatecky/react-checkbox-tree/dev-status.svg?style=flat-square)](https://david-dm.org/jakezatecky/react-checkbox-tree?type=dev)
-[![Greenkeeper badge](https://badges.greenkeeper.io/jakezatecky/react-checkbox-tree.svg?style=flat-square)](https://greenkeeper.io/)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/jakezatecky/react-checkbox-tree/master/LICENSE.txt)
+[![npm](https://img.shields.io/npm/v/@dorgaren/react-tree.svg?style=flat-square)](https://www.npmjs.com/package/@dorgaren/react-tree)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/strongholdmedia/react-tree/master/LICENSE.txt)
 
-> A simple and elegant checkbox tree for React.
-
-![Demo](demo.gif)
+> A simple tree view control to be used with React
+>
+> This has been forked from [Jake Zatecky's React Checkbox Tree](https://www.npmjs.com/package/react-checkbox-tree).
+> I also bumped the version quite somewhat.
+> The reason for this primarily is that I need this to undergo _serious_ changes in a _very short time frame_.
+> This is the reason for the renaming as well - the idea is to make the checkboxes completely optional.
+>
+> Should you have any problems about the above, please let me know.
+> Should one need any new feature (provided that _they will manifest_) in the original package, feel free to re-integrate / merge / pull / whatnot.
+>
+> This component has been tested to work with _ES5_, _plain JS_ (that is, no JSX) and _Preact_.
+> These possibilities are considered to be important and maintained.
 
 ## Usage
 
 ### Installation
 
-Install the library using your favorite dependency manager:
+Install the library using yarn:
 
 ```
-yarn add react-checkbox-tree
+yarn add @dorgaren/react-tree
 ```
 
 Using npm:
 
 ```
-npm install react-checkbox-tree --save
+npm install --save @dorgaren/react-tree
 ```
 
 > **Note** &ndash; This library makes use of [Font Awesome](http://fontawesome.io/) styles and expects them to be loaded in the browser.
+> If you don't have it, nor plan to use it, please be sure to provide your own `icons` elements.
 
 
 ### Include CSS
 
 For your convenience, the library's styles can be consumed utilizing one of the following files:
 
-* `node_modules/react-checkbox-tree/lib/react-checkbox-tree.css`
-* `node_modules/react-checkbox-tree/src/less/react-checkbox-tree.less`
-* `node_modules/react-checkbox-tree/src/scss/react-checkbox-tree.scss`
+* `node_modules/@dorgaren/react-tree/lib/react-tree.css`
+* `node_modules/@dorgaren/react-tree/src/less/react-tree.less`
+* `node_modules/@dorgaren/react-tree/src/scss/react-tree.scss`
 
 Either include one of these files in your stylesheets or utilize a CSS loader:
 
 ``` javascript
-import 'react-checkbox-tree/lib/react-checkbox-tree.css';
+import '@dorgaren/react-tree/lib/react-tree.css';
 ```
 
 
 ### Render Component
 
-A quick usage example is included below. Note that the react-checkbox-tree component is [controlled](https://facebook.github.io/react/docs/forms.html#controlled-components). In other words, it is stateless. You must update its `checked` and `expanded` properties whenever a change occurs.
+A quick usage example is included below.
+Note that the react-tree component is [controlled](https://facebook.github.io/react/docs/forms.html#controlled-components).
+In other words, it is stateless.
+You must update its `checked` and/or `expanded` properties whenever a change occurs.
 
 ``` jsx
-import React from 'react';
-import CheckboxTree from 'react-checkbox-tree';
+import React from "react";
+import Tree from "react-tree";
 
 const nodes = [{
-    value: 'mars',
-    label: 'Mars',
+    value: 1,
+    label: "Mars",
     children: [
-        { value: 'phobos', label: 'Phobos' },
-        { value: 'deimos', label: 'Deimos' },
-    ],
+        { value: 12, label: "Phobos" },
+        { value: 13, label: "Deimos" },
+    ]
 }];
 
-class Widget extends React.Component {
+class Widget extends React.Component
+{
     state = {
         checked: [],
         expanded: [],
     };
 
-    render() {
+    render()
+    {
         return (
-            <CheckboxTree
+            <Tree
                 nodes={nodes}
                 checked={this.state.checked}
                 expanded={this.state.expanded}
@@ -86,22 +97,22 @@ All node objects **must** have a unique `value`. This value is serialized into t
 
 #### Changing the Default Icons
 
-By default, **react-checkbox-tree** uses Font Awesome for the various icons that appear in the tree. To change the defaults, simply pass in the `icons` property and override the defaults. Note that you can override as many or as little icons as you like:
+By default, **react-tree** uses Font Awesome for the various icons that appear in the tree. To change the defaults, simply pass in the `icons` property and override the defaults. Note that you can override as many or as little icons as you like:
 
 ``` jsx
-<CheckboxTree
+<Tree
     ...
     icons={{
-        check: <span className="rct-icon rct-icon-check" />,
-        uncheck: <span className="rct-icon rct-icon-uncheck" />,
-        halfCheck: <span className="rct-icon rct-icon-half-check" />,
-        expandClose: <span className="rct-icon rct-icon-expand-close" />,
-        expandOpen: <span className="rct-icon rct-icon-expand-open" />,
-        expandAll: <span className="rct-icon rct-icon-expand-all" />,
-        collapseAll: <span className="rct-icon rct-icon-collapse-all" />,
-        parentClose: <span className="rct-icon rct-icon-parent-close" />,
-        parentOpen: <span className="rct-icon rct-icon-parent-open" />,
-        leaf: <span className="rct-icon rct-icon-leaf" />,
+        check: <span className="rt-icon rt-icon-check" />,
+        uncheck: <span className="rt-icon rt-icon-uncheck" />,
+        halfCheck: <span className="rt-icon rt-icon-half-check" />,
+        expandClose: <span className="rt-icon rt-icon-expand-close" />,
+        expandOpen: <span className="rt-icon rt-icon-expand-open" />,
+        expandAll: <span className="rt-icon rt-icon-expand-all" />,
+        collapseAll: <span className="rt-icon rt-icon-collapse-all" />,
+        parentClose: <span className="rt-icon rt-icon-parent-close" />,
+        parentOpen: <span className="rt-icon rt-icon-parent-open" />,
+        leaf: <span className="rt-icon rt-icon-leaf" />,
     }}
 />
 ```
@@ -113,19 +124,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 ...
 
-<CheckboxTree
+<Tree
     ...
     icons={{
-        check: <FontAwesomeIcon className="rct-icon rct-icon-check" icon="check-square" />,
-        uncheck: <FontAwesomeIcon className="rct-icon rct-icon-uncheck" icon={['fas', 'square']} />,
-        halfCheck: <FontAwesomeIcon className="rct-icon rct-icon-half-check" icon="check-square" />,
-        expandClose: <FontAwesomeIcon className="rct-icon rct-icon-expand-close" icon="chevron-right" />,
-        expandOpen: <FontAwesomeIcon className="rct-icon rct-icon-expand-open" icon="chevron-down" />,
-        expandAll: <FontAwesomeIcon className="rct-icon rct-icon-expand-all" icon="plus-square" />,
-        collapseAll: <FontAwesomeIcon className="rct-icon rct-icon-collapse-all" icon="minus-square" />,
-        parentClose: <FontAwesomeIcon className="rct-icon rct-icon-parent-close" icon="folder" />,
-        parentOpen: <FontAwesomeIcon className="rct-icon rct-icon-parent-open" icon="folder-open" />,
-        leaf: <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon="file" />
+        check: <FontAwesomeIcon className="rt-icon rt-icon-check" icon="check-square" />,
+        uncheck: <FontAwesomeIcon className="rt-icon rt-icon-uncheck" icon={['fas', 'square']} />,
+        halfCheck: <FontAwesomeIcon className="rt-icon rt-icon-half-check" icon="check-square" />,
+        expandClose: <FontAwesomeIcon className="rt-icon rt-icon-expand-close" icon="chevron-right" />,
+        expandOpen: <FontAwesomeIcon className="rt-icon rt-icon-expand-open" icon="chevron-down" />,
+        expandAll: <FontAwesomeIcon className="rt-icon rt-icon-expand-all" icon="plus-square" />,
+        collapseAll: <FontAwesomeIcon className="rt-icon rt-icon-collapse-all" icon="minus-square" />,
+        parentClose: <FontAwesomeIcon className="rt-icon rt-icon-parent-close" icon="folder" />,
+        parentOpen: <FontAwesomeIcon className="rt-icon rt-icon-parent-open" icon="folder-open" />,
+        leaf: <FontAwesomeIcon className="rt-icon rt-icon-leaf-close" icon="file" />
     }}
 />
 ```
@@ -149,6 +160,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 | `noCascade`          | bool     | If true, toggling a parent node will **not** cascade its check state to its children.                                  | `false`     |
 | `onlyLeafCheckboxes` | bool     | If true, checkboxes will only be shown for leaf nodes.                                                                 | `false`     |
 | `optimisticToggle`   | bool     | If true, toggling a partially-checked node will select all children. If false, it will deselect.                       | `true`      |
+| `showCheckboxes`     | bool     | If true, checkboxes are displayed by default to be able to select any node, leaf or not                                | `true`      |
 | `showExpandAll`      | bool     | If true, buttons for expanding and collapsing all parent nodes will appear in the tree.                                | `false`     |
 | `showNodeIcon`       | bool     | If true, each node will show a parent or leaf icon.                                                                    | `true`      |
 | `showNodeTitle`      | bool     | If true, the `label` of each node will become the `title` of the resulting DOM node. Overridden by `node.title`.       | `false`     |
@@ -164,11 +176,11 @@ Individual nodes within the `nodes` property can have the following structure:
 
 | Property       | Type   | Description                              | Default |
 | -------------- | ------ | ---------------------------------------- | ------- |
-| `label`        | mixed  | **Required**. The node's label.          |         |
-| `value`        | mixed  | **Required**. The node's value.          |         |
-| `children`     | array  | An array of child nodes.                 | `null`  |
-| `className`    | string | A className to add to the node.          | `null`  |
-| `disabled`     | bool   | Whether the node should be disabled.     | `false` |
-| `icon`         | mixed  | A custom icon for the node.              | `null`  |
-| `showCheckbox` | bool   | Whether the node should show a checkbox. | `true`  |
-| `title`        | string | A custom `title` attribute for the node. | `null`  |
+| `label`        | mixed  | **Required**. The node's label           |         |
+| `value`        | mixed  | **Required**. The node's value           |         |
+| `children`     | array  | An array of child nodes                  | `null`  |
+| `className`    | string | A className to add to the node           | `null`  |
+| `disabled`     | bool   | Whether the node should be disabled      | `false` |
+| `icon`         | mixed  | A custom icon for the node               | `null`  |
+| `showCheckbox` | bool   | Whether the node should show a checkbox  | `true`  |
+| `title`        | string | A custom `title` attribute for the node  | `null`  |

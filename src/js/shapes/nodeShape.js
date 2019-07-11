@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const nodeShape = {
     label: PropTypes.node.isRequired,

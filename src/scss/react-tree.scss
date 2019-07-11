@@ -1,8 +1,8 @@
-@rt-icon-color: #33c;
-@rt-label-hover: rgba(red(@rt-icon-color), green(@rt-icon-color), blue(@rt-icon-color), .1);
-@rt-label-active: rgba(red(@rt-icon-color), green(@rt-icon-color), blue(@rt-icon-color), .15);
-@rt-clickable-hover: rgba(red(@rt-icon-color), green(@rt-icon-color), blue(@rt-icon-color), .1);
-@rt-clickable-focus: rgba(red(@rt-icon-color), green(@rt-icon-color), blue(@rt-icon-color), .2);
+$rt-icon-color: #33c !default;
+$rt-label-hover: rgba($rt-icon-color, .1) !default;
+$rt-label-active: rgba($rt-icon-color, .15) !default;
+$rt-clickable-hover: rgba($rt-icon-color, .1) !default;
+$rt-clickable-focus: rgba($rt-icon-color, .2) !default;
 
 .react-tree
 {
@@ -55,12 +55,12 @@
 
         &:hover
         {
-            background: @rt-label-hover;
+            background: $rt-label-hover;
         }
 
         &:active
         {
-            background: @rt-label-active;
+            background: $rt-label-active;
         }
     }
 
@@ -185,19 +185,19 @@
 
     &:hover
     {
-        background: @rt-clickable-hover;
+        background: $rt-clickable-hover;
     }
 
     &:focus
     {
         outline: 0;
-        background: @rt-clickable-focus;
+        background: $rt-clickable-focus;
     }
 }
 
 .rt-node-icon
 {
-    color: @rt-icon-color;
+    color: $rt-icon-color;
 }
 
 .rt-title
