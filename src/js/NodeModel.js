@@ -36,7 +36,7 @@ class NodeModel
     {
         if (!Array.isArray(nodes) || nodes.length === 0) { return; }
 
-        const { disabled, noCascade } = this.props;
+        const { disabled, noCascade, customProps } = this.props;
 
         // Flatten the `node` property for internal lookups
         nodes.forEach(
@@ -57,7 +57,7 @@ class NodeModel
                     index
                 };
 
-                Objec.keys(customProps).forEach(
+                Object.keys(customProps).forEach(
                     (key) => { if (key in node) { nodeData[key] = node[key]; } }
                 );
 

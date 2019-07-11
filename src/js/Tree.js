@@ -21,6 +21,8 @@ class Tree extends React.Component
         disabled: PropTypes.bool,
         expandDisabled: PropTypes.bool,
         expandOnClick: PropTypes.bool,
+        useCheckboxes: PropTypes.bool,
+        customProps: PropTypes.array,
         expanded: listShape,
         icons: iconsShape,
         id: PropTypes.string,
@@ -44,7 +46,9 @@ class Tree extends React.Component
         disabled: false,
         expandDisabled: false,
         expandOnClick: false,
+        useCheckboxes: true,
         expanded: [],
+        customProps: [],
         icons: {
             check: <span className="rt-icon rt-icon-check" />,
             uncheck: <span className="rt-icon rt-icon-uncheck" />,
