@@ -36,7 +36,7 @@ class NodeModel
     {
         if (!Array.isArray(nodes) || nodes.length === 0) { return; }
 
-        const { disabled, noCascade, customProps } = this.props;
+        const { disabled, noCascade } = this.props;
 
         // Flatten the `node` property for internal lookups
         nodes.forEach(
@@ -44,7 +44,7 @@ class NodeModel
             {
                 const isParent = this.nodeHasChildren(node);
 
-                let nodeData = {
+                this.flatNodes[node.value] = {
                     label: node.label,
                     value: node.value,
                     children: node.children,
@@ -52,16 +52,13 @@ class NodeModel
                     isParent,
                     isLeaf: !isParent,
                     showCheckbox: node.showCheckbox !== undefined ? node.showCheckbox : true,
+                    isSelectable: typeof node.isSelectable === "undefined" ? true : node.isSelectable,
+                    meta: typeof node.data === "object" ? node.meta : {},
                     disabled: this.getDisabledState(node, parent, disabled, noCascade),
                     treeDepth: depth,
                     index
                 };
 
-                Object.keys(customProps).forEach(
-                    (key) => { if (key in node) { nodeData[key] = node[key]; } }
-                );
-
-                this.flatNodes[node.value] = nodeData;
                 this.flattenNodes(node.children, node, depth + 1);
             }
         );
