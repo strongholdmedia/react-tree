@@ -217,10 +217,11 @@ class Tree extends React.Component
             lang,
             noCascade,
             onClick,
+            useCheckboxes,
             onlyLeafCheckboxes,
             optimisticToggle,
             showNodeTitle,
-            showNodeIcon,
+            showNodeIcon
         } = this.props;
 
         const { id, model } = this.state;
@@ -236,8 +237,9 @@ class Tree extends React.Component
             // deserialization of the `checked` property
             flatNode.checkState = this.determineShallowCheckState(node, noCascade);
 
-            // Show checkbox only if this is a leaf node or showCheckbox is true
-            const showCheckbox = onlyLeafCheckboxes ? flatNode.isLeaf : flatNode.showCheckbox;
+            // Show checkbox only if checkboxes are enabled in general, AND
+            // either this is a leaf node or showCheckbox is true
+            const showCheckbox = useCheckboxes && (onlyLeafCheckboxes ? flatNode.isLeaf : flatNode.showCheckbox);
 
             // Render only if parent is expanded or if there is no root parent
             const parentExpanded = parent.value ? model.getNode(parent.value).expanded : true;

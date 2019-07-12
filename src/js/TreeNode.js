@@ -239,12 +239,12 @@ class TreeNode extends React.Component
 
     renderLabel()
     {
-        const { label, showCheckboxes, showCheckbox, showNodeIcon } = this.props;
+        const { label, showCheckbox, showNodeIcon } = this.props;
         const labelChildren = [
             showNodeIcon
                 ? (
                     <span key={0} className="rt-node-icon">
-                        {this.renderNodeIcon()}
+                        { this.renderNodeIcon() }
                     </span>
                 )
                 : null,
@@ -253,9 +253,7 @@ class TreeNode extends React.Component
             </span>
         ];
 
-        if (!showCheckbox || !showCheckboxes) {
-            return this.renderBareLabel(labelChildren);
-        }
+        if (!showCheckbox) { return this.renderBareLabel(labelChildren); }
 
         return this.renderCheckboxLabel(labelChildren);
     }
