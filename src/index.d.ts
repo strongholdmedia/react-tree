@@ -10,6 +10,7 @@ declare module "@dorgaren/react-tree"
         className?: string;
         disabled?: boolean;
         isSelectable?: boolean;
+        meta?: any;
         icon?: JSX.Element;
         showCheckbox?: boolean;
         title?: string;
