@@ -9,6 +9,7 @@ declare module "@dorgaren/react-tree"
         children?: Array<Node>;
         className?: string;
         disabled?: boolean;
+        isSelectable?: boolean;
         icon?: JSX.Element;
         showCheckbox?: boolean;
         title?: string;
@@ -53,7 +54,6 @@ declare module "@dorgaren/react-tree"
         name?: string;
         nameAsArray?: boolean;
         nativeCheckboxes?: boolean;
-        customProps?: Array<string>;
         noCascade?: boolean;
         onlyLeafCheckboxes?: boolean;
         optimisticToggle?: boolean;
