@@ -1,7 +1,7 @@
-# @dorgaren/react-tree
+# @dorgaren/react-vs-tree
 
-[![npm](https://img.shields.io/npm/v/@dorgaren/react-tree.svg?style=flat-square)](https://www.npmjs.com/package/@dorgaren/react-tree)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/strongholdmedia/react-tree/master/LICENSE.txt)
+[![npm](https://img.shields.io/npm/v/@dorgaren/react-vs-tree.svg?style=flat-square)](https://www.npmjs.com/package/@dorgaren/react-vs-tree)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/strongholdmedia/react-vs-tree/master/LICENSE.txt)
 
 > A simple tree view control to be used with React
 >
@@ -23,13 +23,13 @@
 Install the library using yarn:
 
 ```
-yarn add @dorgaren/react-tree
+yarn add @dorgaren/react-vs-tree
 ```
 
 Using npm:
 
 ```
-npm install --save @dorgaren/react-tree
+npm install --save @dorgaren/react-vs-tree
 ```
 
 > **Note** &ndash; This library makes use of [Font Awesome](http://fontawesome.io/) styles and expects them to be loaded in the browser.
@@ -40,27 +40,27 @@ npm install --save @dorgaren/react-tree
 
 For your convenience, the library's styles can be consumed utilizing one of the following files:
 
-* `node_modules/@dorgaren/react-tree/lib/react-tree.css`
-* `node_modules/@dorgaren/react-tree/src/less/react-tree.less`
-* `node_modules/@dorgaren/react-tree/src/scss/react-tree.scss`
+* `node_modules/@dorgaren/react-vs-tree/lib/react-vs-tree.css`
+* `node_modules/@dorgaren/react-vs-tree/src/less/react-vs-tree.less`
+* `node_modules/@dorgaren/react-vs-tree/src/scss/react-vs-tree.scss`
 
 Either include one of these files in your stylesheets or utilize a CSS loader:
 
 ``` javascript
-import '@dorgaren/react-tree/lib/react-tree.css';
+import '@dorgaren/react-vs-tree/lib/react-vs-tree.css';
 ```
 
 
 ### Render Component
 
 A quick usage example is included below.
-Note that the react-tree component is [controlled](https://facebook.github.io/react/docs/forms.html#controlled-components).
+Note that the react-vs-tree component is [controlled](https://facebook.github.io/react/docs/forms.html#controlled-components).
 In other words, it is stateless.
 You must update its `checked` and/or `expanded` properties whenever a change occurs.
 
 ``` jsx
 import React from "react";
-import Tree from "react-tree";
+import Tree from "react-vs-tree";
 
 const nodes = [{
     value: 1,
@@ -97,7 +97,7 @@ All node objects **must** have a unique `value`. This value is serialized into t
 
 #### Changing the Default Icons
 
-By default, **react-tree** uses Font Awesome for the various icons that appear in the tree. To change the defaults, simply pass in the `icons` property and override the defaults. Note that you can override as many or as little icons as you like:
+By default, **react-vs-tree** uses Font Awesome for the various icons that appear in the tree. To change the defaults, simply pass in the `icons` property and override the defaults. Note that you can override as many or as little icons as you like:
 
 ``` jsx
 <Tree
