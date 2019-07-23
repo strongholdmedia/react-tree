@@ -1,6 +1,6 @@
 {
-    "name": "@dorgaren/react-tree",
-    "version": "1.9.7",
+    "name": "@dorgaren/react-vs-tree",
+    "version": "2.0.0",
     "description": "A simple and ubiquitous React tree",
     "author": {
         "name": "Viktor Csiki",
@@ -30,10 +30,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/strongholdmedia/react-tree"
+        "url": "https://github.com/strongholdmedia/react-vs-tree"
     },
-    "homepage": "https://ui.dorgaren.digital/react-tree",
-    "bugs": "https://github.com/strongholdmedia/react-tree/issues",
+    "homepage": "https://ui.dorgaren.digital/react-vs-tree",
+    "bugs": "https://github.com/strongholdmedia/react-vs-tree/issues",
     "main": "lib/index.js",
     "browser": "lib/index.browser.js",
     "browserslist": [
