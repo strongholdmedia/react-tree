@@ -1,6 +1,6 @@
 import * as React from "react";
 
-declare module "@dorgaren/react-tree" 
+declare module "@dorgaren/react-vs-tree" 
 {
     interface Node 
     {
