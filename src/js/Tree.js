@@ -245,7 +245,11 @@ class Tree extends React.Component
         const { id, model } = this.state;
         const { icons: defaultIcons } = Tree.defaultProps;
 
-        const treeNodes = nodes.map((node) => {
+        const nodeList = Array.isArray(nodes)
+            ? nodes
+            : Object.values(nodes);
+
+        const treeNodes = nodeList.map((node) => {
             const key = node[this.props.valueProp];
             const flatNode = model.getNode(node[this.props.valueProp]);
             const children = flatNode.isParent ? this.renderTreeNodes(node.children, node) : null;
