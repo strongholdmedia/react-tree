@@ -58,6 +58,9 @@ Note that the react-vs-tree component is [controlled](https://facebook.github.io
 In other words, it is stateless.
 You must update its `checked` and/or `expanded` properties whenever a change occurs.
 
+***NOTE: from version 2.1.0 onwards, providing `nodes` as an object with e.g. ids
+as keys instead of a flat array is supported.***
+
 ``` jsx
 import React from "react";
 import Tree from "react-vs-tree";
@@ -153,6 +156,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 | `icons`              | object   | An object containing the mappings for the various icons and their components. See **Changing the Default Icons**.      | `{ ... }`   |
 | `id`                 | string   | A string to be used for the HTML ID of the rendered tree and its nodes.                                                | `null`      |
 | `expanded`           | array    | An array of expanded node values.                                                                                      | `[]`        |
+| `labelProp`          | string   | The name for the "label" property for nodes, now configurable                                                          | `"label"`   |
+| `valueProp`          | string   | The name for the "value" property for nodes, now configurable                                                          | `"value"`   |
 | `lang`               | object   | An object containing the language mappings for the various text elements.                                              | `{ ... }`   |
 | `name`               | string   | Optional name for the hidden `<input>` element.                                                                        | `undefined` |
 | `nameAsArray`        | bool     | If true, the hidden `<input>` will encode its values as an array rather than a joined string.                          | `false`     |

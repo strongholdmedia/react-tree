@@ -34,19 +34,23 @@ class NodeModel
 
     flattenNodes(nodes, parent = {}, depth = 0)
     {
-        if (!Array.isArray(nodes) || nodes.length === 0) { return; }
+        let nodeList = Array.isArray(nodes) || typeof nodes !== "object" || nodes === null
+            ? nodes
+            : Object.values(nodes);
+
+        if (!Array.isArray(nodeList) || nodeList.length === 0) { return; }
 
         const { disabled, noCascade } = this.props;
 
         // Flatten the `node` property for internal lookups
-        nodes.forEach(
+        nodeList.forEach(
             (node, index) =>
             {
                 const isParent = this.nodeHasChildren(node);
 
-                this.flatNodes[node.value] = {
-                    label: node.label,
-                    value: node.value,
+                this.flatNodes[node[this.props.valueProp]] = {
+                    label: node[this.props.labelProp],
+                    value: node[this.props.valueProp],
                     children: node.children,
                     parent,
                     isParent,
@@ -66,7 +70,10 @@ class NodeModel
 
     nodeHasChildren(node)
     {
-        return Array.isArray(node.children) && node.children.length > 0;
+        return (
+            (Array.isArray(node.children) && node.children.length > 0)
+            || (typeof node.children === "object" && node.children !== null && Object.keys(node.children).length > 0)
+        );
     }
 
     getDisabledState(node, parent, disabledProp, noCascade)
@@ -135,13 +142,13 @@ class NodeModel
 
     toggleChecked(node, isChecked, noCascade)
     {
-        const flatNode = this.flatNodes[node.value];
+        const flatNode = this.flatNodes[node[this.props.valueProp]];
 
         if (flatNode.isLeaf || noCascade) {
             if (node.disabled) { return this; }
 
             // Set the check status of a leaf node or an uncoupled parent
-            this.toggleNode(node.value, "checked", isChecked);
+            this.toggleNode(node[this.props.valueProp], "checked", isChecked);
         } else {
             // Percolate check status down to all children
             flatNode.children.forEach(

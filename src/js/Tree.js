@@ -23,6 +23,8 @@ class Tree extends React.Component
         expandOnClick: PropTypes.bool,
         useCheckboxes: PropTypes.bool,
         expanded: listShape,
+        labelProp: PropTypes.string,
+        valueProp: PropTypes.string,
         icons: iconsShape,
         id: PropTypes.string,
         lang: languageShape,
@@ -47,6 +49,8 @@ class Tree extends React.Component
         expandOnClick: false,
         useCheckboxes: true,
         expanded: [],
+        valueProp: "value",
+        labelProp: "label",
         icons: {
             check: <span className="rt-icon rt-icon-check" />,
             uncheck: <span className="rt-icon rt-icon-uncheck" />,
@@ -200,12 +204,26 @@ class Tree extends React.Component
 
     isEveryChildChecked(node)
     {
-        return node.children.every(child => this.state.model.getNode(child.value).checkState === 1);
+        let children = Array.isArray(node.children)
+            ? node.children
+            : (typeof node.children === "object" && node.children !== null
+                ? Object.values(node.children)
+                : []
+            );
+
+        return children.every(child => this.state.model.getNode(child.value).checkState === 1);
     }
 
     isSomeChildChecked(node)
     {
-        return node.children.some(child => this.state.model.getNode(child.value).checkState > 0);
+        let children = Array.isArray(node.children)
+            ? node.children
+            : (typeof node.children === "object" && node.children !== null
+                ? Object.values(node.children)
+                : []
+            );
+
+        return children.some(child => this.state.model.getNode(child.value).checkState > 0);
     }
 
     renderTreeNodes(nodes, parent = { })
