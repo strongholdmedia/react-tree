@@ -191,7 +191,7 @@ class Tree extends React.Component
 
     determineShallowCheckState(node, noCascade)
     {
-        const flatNode = this.state.model.getNode(node.value);
+        const flatNode = this.state.model.getNode(node[this.props.valueProp]);
 
         if (flatNode.isLeaf || noCascade) { return flatNode.checked ? 1 : 0; }
 
@@ -211,7 +211,7 @@ class Tree extends React.Component
                 : []
             );
 
-        return children.every(child => this.state.model.getNode(child.value).checkState === 1);
+        return children.every(child => this.state.model.getNode(child[this.props.valueProp]).checkState === 1);
     }
 
     isSomeChildChecked(node)
@@ -223,7 +223,7 @@ class Tree extends React.Component
                 : []
             );
 
-        return children.some(child => this.state.model.getNode(child.value).checkState > 0);
+        return children.some(child => this.state.model.getNode(child[this.props.valueProp]).checkState > 0);
     }
 
     renderTreeNodes(nodes, parent = { })
@@ -246,8 +246,8 @@ class Tree extends React.Component
         const { icons: defaultIcons } = Tree.defaultProps;
 
         const treeNodes = nodes.map((node) => {
-            const key = node.value;
-            const flatNode = model.getNode(node.value);
+            const key = node[this.props.valueProp];
+            const flatNode = model.getNode(node[this.props.valueProp]);
             const children = flatNode.isParent ? this.renderTreeNodes(node.children, node) : null;
 
             // Determine the check state after all children check states have been determined
@@ -260,7 +260,7 @@ class Tree extends React.Component
             const showCheckbox = useCheckboxes && (onlyLeafCheckboxes ? flatNode.isLeaf : flatNode.showCheckbox);
 
             // Render only if parent is expanded or if there is no root parent
-            const parentExpanded = parent.value ? model.getNode(parent.value).expanded : true;
+            const parentExpanded = parent[this.props.valueProp] ? model.getNode(parent[this.props.valueProp]).expanded : true;
 
             if (!parentExpanded) { return null; }
 
@@ -275,16 +275,16 @@ class Tree extends React.Component
                     expanded={ flatNode.expanded }
                     icon={ node.icon }
                     icons={ { ...defaultIcons, ...icons } }
-                    label={ node.label }
+                    label={ node[this.props.valueProp] }
                     lang={ lang }
                     optimisticToggle={ optimisticToggle }
                     isLeaf={ flatNode.isLeaf }
                     isParent={ flatNode.isParent }
                     showCheckbox={ showCheckbox }
                     showNodeIcon={ showNodeIcon }
-                    title={ showNodeTitle ? node.title || node.label : node.title }
+                    title={ showNodeTitle ? node.title || node[this.props.labelProp] : node.title }
                     treeId={ id }
-                    value={ node.value }
+                    value={ node[this.props.valueProp] }
                     onCheck={ this.onCheck }
                     onClick={ onClick && this.onNodeClick }
                     onExpand={ this.onExpand }
