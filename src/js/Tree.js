@@ -275,7 +275,7 @@ class Tree extends React.Component
                     expanded={ flatNode.expanded }
                     icon={ node.icon }
                     icons={ { ...defaultIcons, ...icons } }
-                    label={ node[this.props.valueProp] }
+                    label={ node[this.props.labelProp] }
                     lang={ lang }
                     optimisticToggle={ optimisticToggle }
                     isLeaf={ flatNode.isLeaf }
