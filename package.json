@@ -1,6 +1,6 @@
 {
     "name": "@dorgaren/react-vs-tree",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "description": "A simple and ubiquitous React tree",
     "author": {
         "name": "Viktor Csiki",
